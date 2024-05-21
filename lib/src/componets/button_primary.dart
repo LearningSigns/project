@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class ButtonPrimary extends StatelessWidget {
   const ButtonPrimary({
     Key? key,
-    required this.screenSize, required this.title, required this.colorFondo, required this.colorLetra, required this.onTap, required this.colorBorde,
+    required this.screenSize,
+    required this.title,
+    required this.colorFondo,
+    required this.colorLetra,
+    required this.onTap,
+    required this.colorBorde,
   }) : super(key: key);
 
   final Size screenSize;
@@ -16,19 +21,18 @@ class ButtonPrimary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       padding: const EdgeInsets.symmetric( vertical: 8.0, horizontal: 1.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 1.0),
       child: ElevatedButton(
-        onPressed: (){
+        onPressed: () {
           onTap();
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: colorFondo, 
+          backgroundColor: colorFondo,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            side: BorderSide(color: colorBorde)),
+              borderRadius: BorderRadius.circular(50.0),
+              side: BorderSide(color: colorBorde)),
           elevation: 8.0, // Elevación (sombra) del botón
-          padding: const EdgeInsets.symmetric(
-              vertical: 15.0, horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
         ),
         child: SizedBox(
           width: screenSize.width * 0.9,
@@ -36,7 +40,7 @@ class ButtonPrimary extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 18,
               color: colorLetra,
             ),
           ),

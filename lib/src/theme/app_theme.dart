@@ -21,13 +21,14 @@ class AppTheme {
 }
 
 class ColorsApp {
-  static const Color backgroundColor = Color(0xffEFF3F4);  
+  static const Color backgroundColor = Color(0xffEFF3F4);
   static const Color white = Color(0xffFFFfff);
   static const Color colorCard = Color(0xFFE5ECFF);
+  static const Color colorField = Color(0xFFCED3DB);
   static const Color textColor = Color(0xff122F4D);
   static const Color primary2 = Color(0xff145388);
   static const Color primary = Color(0xff167FFC);
-  static const Color secondary = Color(0xff004394);
+  static const Color secondary = Color(0xFF0E244B);
   static const Color black = Color.fromARGB(255, 0, 0, 0);
   static const Color blue = Color(0xff56CCF2);
   static const Color success = Color(0xff19B95C);
@@ -49,7 +50,6 @@ class ColorsApp {
   }
 }
 
-
 class InputDecorations {
   static InputDecoration authInputDecoracion({
     required String hintText,
@@ -58,6 +58,8 @@ class InputDecorations {
     Color? colorBackground,
   }) {
     return InputDecoration(
+        isDense: true, // Reduce la densidad
+        contentPadding: const EdgeInsets.all(20.0), // Ajusta el padding interno
         enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: ColorsApp.theme9),
             borderRadius: BorderRadius.circular(15.0)),

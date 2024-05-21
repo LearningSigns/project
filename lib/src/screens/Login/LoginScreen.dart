@@ -14,78 +14,146 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: ColorsApp.colorCard,
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Stack(
           children: [
-            const Text('Te damos bienvenida al Login'),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment :  CrossAxisAlignment.start,
-              children: [
-                const Text( 'Usuario',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                      'assets/image/background_screem.jpeg'), // Ruta de la imagen de fondo
+                  fit: BoxFit
+                      .cover, // Ajusta la imagen para cubrir todo el espacio
                 ),
-                TextFormField(
-                  autocorrect: false,
-                  // obscureText: !showPassword,
-                  onChanged: (value) => {},
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecorations.authInputDecoracion(
-                    hintText: '********',
-                  ),
-                  validator: (value) {
-                    return (value != null && value.length >= 4)
-                        ? null
-                        : 'La contraseña debe de ser mayor a 4 caracteres';
-                  },
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                const Text(
-                  'Contraseña',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-                TextFormField(
-                  autocorrect: false,
-                  // obscureText: !showPassword,
-                  onChanged: (value) => {},
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecorations.authInputDecoracion(
-                    hintText: 'test@gmail.p',
-                  ),
-                  validator: (value) {
-                    return (value != null && value.length >= 4)
-                        ? null
-                        : 'La contraseña debe de ser mayor a 4 caracteres';
-                  },
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                ButtonPrimary(
-                  screenSize: screenSize,
-                  title: 'INICIAR SESIÓN',
-                  colorFondo: ColorsApp.secondary,
-                  colorLetra: ColorsApp.white,
-                  onTap: () async {     
-                     Navigator.pushNamed(context, 'second');
-                  },
-                  colorBorde: ColorsApp.secondary,
-                ),
-              ],
+              ),
             ),
+            Align(
+                alignment: Alignment.center,
+                child: SingleChildScrollView(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 15.0, vertical: 45.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Bienvenidos!',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Center(
+                              child: Container(
+                                width: 150,
+                                height: 150,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                      40), // Borde redondeado de 20
+                                  image: const DecorationImage(
+                                    image: AssetImage('assets/image/logo.jpg'),
+                                    fit: BoxFit
+                                        .cover, // Ajusta la imagen para cubrir el contenedor
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            SizedBox(
+                              height: 60.0,
+                              child: TextFormField(
+                                autocorrect: false,
+                                onChanged: (value) => {},
+                                decoration: const InputDecoration(
+                                  filled: true,
+                                  fillColor: ColorsApp.white,
+                                  hintText: 'Ingresa tu usuario',
+                                  labelText: 'Usuario',
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.auto,
+                                  floatingLabelAlignment:
+                                      FloatingLabelAlignment.start,
+                                ),
+                                style: const TextStyle(
+                                  color: ColorsApp.textColor,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            SizedBox(
+                              height: 60.0,
+                              child: TextFormField(
+                                autocorrect: false,
+                                onChanged: (value) => {},
+                                obscureText: true,
+                                decoration: const InputDecoration(
+                                  filled: true,
+                                  fillColor: ColorsApp.white,
+                                  hintText: 'Ingresa tu contraseña',
+                                  labelText: 'Contraseña',
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.auto,
+                                  floatingLabelAlignment:
+                                      FloatingLabelAlignment.start,
+                                ),
+                                style: const TextStyle(
+                                  color: ColorsApp.textColor,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            ButtonPrimary(
+                              screenSize: screenSize,
+                              title: 'Ingresar',
+                              colorFondo: ColorsApp.secondary,
+                              colorLetra: ColorsApp.white,
+                              onTap: () async {
+                                Navigator.pushNamed(context, 'second');
+                              },
+                              colorBorde: ColorsApp.secondary,
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  '¿No tienes cuenta?',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  width: 10.0,
+                                ),
+                                GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, 'register');
+                                    },
+                                    child: const Text(
+                                      'Registrar ahora.',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    ))
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ))
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:learning_sings/src/screens/screen.dart';
 
 class AppRoutes {
-  static const initialRoute = 'login';
+  static const initialRoute = 'first_page';
 
   static Map<String, Widget Function(BuildContext)> routes = {
-    'login': (BuildContext context) =>  const LoginScreen(),
+    'first_page': (BuildContext context) => const FistPageScreen(),
+    'login': (BuildContext context) => const LoginScreen(),
+    'register': (BuildContext context) => const RegisterScreen(),
     // 'welcome': (BuildContext context) => const WelcomeScreen(),
   };
 }
