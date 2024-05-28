@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               colorFondo: ColorsApp.secondary,
                               colorLetra: ColorsApp.white,
                               onTap: () async {
-                                Navigator.pushNamed(context, 'second');
+                                Navigator.pushNamed(context, 'welcome');
                               },
                               colorBorde: ColorsApp.secondary,
                             ),

@@ -8,6 +8,6 @@ class AppRoutes {
     'first_page': (BuildContext context) => const FistPageScreen(),
     'login': (BuildContext context) => const LoginScreen(),
     'register': (BuildContext context) => const RegisterScreen(),
-    // 'welcome': (BuildContext context) => const WelcomeScreen(),
+    'welcome': (BuildContext context) => const WelcomeScreen(),
   };
 }

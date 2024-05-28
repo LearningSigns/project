@@ -22,6 +22,7 @@ class AppTheme {
 
 class ColorsApp {
   static const Color backgroundColor = Color(0xffEFF3F4);
+  static const Color backgroundColorApp = Color(0xffEFF3F4);
   static const Color white = Color(0xffFFFfff);
   static const Color colorCard = Color(0xFFE5ECFF);
   static const Color colorField = Color(0xFFCED3DB);
