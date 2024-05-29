@@ -18,81 +18,103 @@ class _SideMenuState extends State<SideMenu> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const CustomDrawerHeader(),               
+                const CustomDrawerHeader(),
                 ExpansionTile(
                   title: const Text('Presentacion'),
-                  leading: Icon(Icons.home),
+                  leading: const Icon(Icons.home),
                   childrenPadding: const EdgeInsets.all(4),
                   backgroundColor: Colors.transparent,
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        leading: const Icon(Icons.document_scanner),
+                        // leading: const Icon(Icons.document_scanner),
                         title: const Text('¿Quiénes somos?'),
-                        onTap: () {
-            
-                        }),
+                        onTap: () {}),
                     ListTile(
-                        leading: const Icon(Icons.document_scanner),
+                        // leading: const Icon(Icons.document_scanner),
                         title: const Text('¿Qué vas a aprender?'),
                         onTap: () {}),
                   ],
                 ),
                 ExpansionTile(
-                  title: const Text('Presentacion'),
-                  leading: Icon(Icons.home),
+                  title: const Text('Módulo. Aprendizaje inicial'),
+                  leading: const Icon(Icons.filter_1),
                   childrenPadding: const EdgeInsets.all(4),
                   backgroundColor: Colors.transparent,
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Quiénes somos?'),
-                        onTap: () {
-                          
-                        }),
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Introducción'),
+                        onTap: () {}),
                     ListTile(
-                        leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Qué vas a aprender?'),
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Abecedario'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Presentación personal 1'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Saludos'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Familia'),
                         onTap: () {}),
                   ],
                 ),
                 ExpansionTile(
-                  title: const Text('Presentacion'),
-                  leading: Icon(Icons.home),
+                  title: const Text('Módulo. Aprendizaje básico'),
+                  leading: const Icon(Icons.filter_2),
                   childrenPadding: const EdgeInsets.all(4),
                   backgroundColor: Colors.transparent,
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Quiénes somos?'),
-                        onTap: () {
-            
-                        }),
-                    ListTile(
-                        leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Qué vas a aprender?'),
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Introducción'),
                         onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Números'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Días'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Meses'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Años'),
+                        onTap: () {}),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Presentación'),
+                        onTap: () {}),
+                    
                   ],
                 ),
-               
               ],
             ),
-          ),        
+          ),
           Column(
             children: [
               ListTile(
-                      leading: const Icon(Icons.outbond_rounded),
-                      title: const Text('Ajustes'),
-                      onTap: () {}),
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Ajustes'),
+                  onTap: () {}),
               ListTile(
-                      leading: const Icon(Icons.outbond_rounded),
-                      title: const Text('Cerrar seccion'),
-                      onTap: () {}),
+                  leading: const Icon(Icons.outbond_rounded),
+                  title: const Text('Cerrar seccion'),
+                  onTap: () {}),
             ],
           ),
-                  ],
+        ],
       ),
     );
   }
