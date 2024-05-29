@@ -79,7 +79,9 @@ class _SideMenuState extends State<SideMenu> {
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Números'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'number');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Días'),

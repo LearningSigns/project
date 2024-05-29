@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
   const AppBarHome({
-    super.key,
+    super.key, required this.titleApp,
   });
+  final String titleApp;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        'Bienvenido!',
-        style: TextStyle(fontSize: 16.0),
+      title: Text(
+        titleApp.isEmpty ? 'Bienvenido!'  : titleApp,
+        style: const TextStyle(fontSize: 16.0),
       ),
       centerTitle: true,
       backgroundColor: Colors.deepPurple,

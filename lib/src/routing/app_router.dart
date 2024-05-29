@@ -10,5 +10,8 @@ class AppRoutes {
     'register': (BuildContext context) => const RegisterScreen(),
     'welcome': (BuildContext context) => const WelcomeScreen(),
     'home': (BuildContext context) => const HomeScreen(),
+    'number': (BuildContext context) => const NumberScreen(),
+    'item': (context) => ItemSelected(item: ModalRoute.of(context)!.settings.arguments as String,
+        ),
   };
 }
