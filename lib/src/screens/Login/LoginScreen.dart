@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(
                                       40), // Borde redondeado de 20
                                   image: const DecorationImage(
-                                    image: AssetImage('assets/image/logo.jpg'),
+                                    image: AssetImage('assets/image/logo_without_background.png'),
                                     fit: BoxFit
                                         .cover, // Ajusta la imagen para cubrir el contenedor
                                   ),

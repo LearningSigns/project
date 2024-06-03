@@ -12,16 +12,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/image/background_screem.jpeg'), // Ruta de la imagen de fondo
-                fit: BoxFit
-                    .cover, // Ajusta la imagen para cubrir todo el espacio
-              ),
-            ),
-          ),
+          
           Align(
               alignment: Alignment.center,
               child: SingleChildScrollView(
@@ -40,7 +31,7 @@ class RegisterScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(
                                 20), // Borde redondeado de 20
                             image: const DecorationImage(
-                              image: AssetImage('assets/image/logo.jpg'),
+                              image: AssetImage('assets/image/logo_without_background.png'),
                               fit: BoxFit
                                   .cover, // Ajusta la imagen para cubrir el contenedor
                             ),

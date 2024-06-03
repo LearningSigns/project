@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_sings/src/theme/app_theme.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -29,11 +30,15 @@ class _SideMenuState extends State<SideMenu> {
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('¿Quiénes somos?'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whoweare');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('¿Qué vas a aprender?'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whatlearn');
+                        }),
                   ],
                 ),
                 ExpansionTile(
@@ -46,15 +51,21 @@ class _SideMenuState extends State<SideMenu> {
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Introducción'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'introduction_1');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Abecedario'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'alphabet');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Presentación personal 1'),
-                        onTap: () {}),
+                        onTap: () {
+                            Navigator.pushNamed(context, 'presentation_i');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Saludos'),
@@ -75,7 +86,9 @@ class _SideMenuState extends State<SideMenu> {
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Introducción'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'introduction_1');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Números'),
@@ -85,11 +98,15 @@ class _SideMenuState extends State<SideMenu> {
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Días'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'day');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Meses'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'month');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Años'),
@@ -98,7 +115,48 @@ class _SideMenuState extends State<SideMenu> {
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Presentación'),
                         onTap: () {}),
-                    
+                  ],
+                ),
+                ExpansionTile(
+                  title: const Text('Finalización'),
+                  leading: const Icon(Icons.flag_circle),
+                  childrenPadding: const EdgeInsets.all(4),
+                  backgroundColor: Colors.transparent,
+                  collapsedBackgroundColor: Colors.transparent,
+                  children: [
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Felicitaciones'),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whoweare');
+                        }),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Evalua tus conocimientos'),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whatlearn');
+                        }),
+                  ],
+                ),
+                ExpansionTile(
+                  title: const Text('Ajustes'),
+                  leading: const Icon(Icons.settings),
+                  childrenPadding: const EdgeInsets.all(4),
+                  backgroundColor: Colors.transparent,
+                  collapsedBackgroundColor: Colors.transparent,
+                  children: [
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Perfil'),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whoweare');
+                        }),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Cerrar sesión'),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'whatlearn');
+                        }),
                   ],
                 ),
               ],
@@ -107,12 +165,8 @@ class _SideMenuState extends State<SideMenu> {
           Column(
             children: [
               ListTile(
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Ajustes'),
-                  onTap: () {}),
-              ListTile(
                   leading: const Icon(Icons.outbond_rounded),
-                  title: const Text('Cerrar seccion'),
+                  title: const Text('Contáctanos '),
                   onTap: () {}),
             ],
           ),
@@ -129,7 +183,11 @@ class CustomDrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 69, 120, 162),
+        color: ColorsApp.secondary,
+        // image: DecorationImage(
+        //   image: AssetImage('assets/image/background_screem.jpeg'),
+        //   fit: BoxFit.cover,
+        // ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +198,7 @@ class CustomDrawerHeader extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20), // Borde redondeado de 20
               image: const DecorationImage(
-                image: AssetImage('assets/image/logo.jpg'),
+                image: AssetImage('assets/image/logo_without_background.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -151,9 +209,9 @@ class CustomDrawerHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Learning Signs',
+                'LEARNING SIGNS',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorsApp.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),

@@ -31,7 +31,7 @@ class ColorsApp {
   static const Color primary = Color(0xff167FFC);
   static const Color secondary = Color(0xFF0E244B);
   static const Color black = Color.fromARGB(255, 0, 0, 0);
-  static const Color blue = Color(0xff56CCF2);
+  static const Color blue = Color(0xff2990cb);
   static const Color success = Color(0xff19B95C);
   static const Color info = Color(0xff9DC7F8);
   static const Color warning = Color(0xffFCC78B);
