@@ -64,16 +64,20 @@ class _SideMenuState extends State<SideMenu> {
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Presentación personal 1'),
                         onTap: () {
-                            Navigator.pushNamed(context, 'presentation_i');
+                          Navigator.pushNamed(context, 'presentation_i');
                         }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Saludos'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'greetings');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Familia'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'family');
+                        }),
                   ],
                 ),
                 ExpansionTile(
@@ -87,13 +91,7 @@ class _SideMenuState extends State<SideMenu> {
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Introducción'),
                         onTap: () {
-                          Navigator.pushNamed(context, 'introduction_1');
-                        }),
-                    ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Números'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'number');
+                          Navigator.pushNamed(context, 'introduction_2');
                         }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
@@ -109,12 +107,22 @@ class _SideMenuState extends State<SideMenu> {
                         }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
+                        title: const Text('Números'),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'number');
+                        }),
+                    ListTile(
+                        // leading: const Icon(Icons.document_scanner),
                         title: const Text('Años'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'year');
+                        }),
                     ListTile(
                         // leading: const Icon(Icons.document_scanner),
                         title: const Text('Presentación'),
-                        onTap: () {}),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'presentation_ii');
+                        }),
                   ],
                 ),
                 ExpansionTile(

@@ -58,7 +58,7 @@ class AlphabetScreen extends StatelessWidget {
                         Navigator.pushNamed(
                           context,
                           'item',
-                          arguments: listadoAlfabeto[index],
+                          arguments: {'item': listadoAlfabeto[index], 'returnItem': 'alphabet'},
                         );
                       },
                       style: ButtonStyle(

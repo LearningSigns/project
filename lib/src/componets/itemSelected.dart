@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:learning_sings/src/componets/componets.dart';
+import 'package:learning_sings/src/theme/app_theme.dart';
 
 class ItemSelected extends StatefulWidget {
-  const ItemSelected({super.key, required this.item});
+  const ItemSelected({super.key, required this.item, required this.returnItem});
   final String item;
+  final String returnItem;
 
   @override
   _ItemSelectedState createState() => _ItemSelectedState();
@@ -13,9 +15,10 @@ class ItemSelected extends StatefulWidget {
 class _ItemSelectedState extends State<ItemSelected>
     with SingleTickerProviderStateMixin {
   late GifController _controller;
-
+  String itemName = '';
   @override
   void initState() {
+    itemName = widget.item == '¿Cómo estas?' ? 'Cómo estas' : widget.item;
     _controller = GifController(vsync: this);
     super.initState();
   }
@@ -46,12 +49,25 @@ class _ItemSelectedState extends State<ItemSelected>
       body: Stack(
         children: [
           const BackgroundImage(),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextButton.icon(
+              onPressed: () {
+                  Navigator.pushNamed(context, widget.returnItem);
+              },
+              icon: const Icon(Icons.arrow_back),
+              label: const Text("Volver"),
+              style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(ColorsApp.secondary),
+              )),
           Center(
             child: SizedBox(
-              // width: 300,
-              // height: 700,
+              width: 340,
+              height: 720,
               child: Gif(
-                image: AssetImage('assets/gif/${widget.item}.gif'),
+                image: AssetImage('assets/gif/$itemName.gif'),
                 controller: _controller,
                 autostart: Autostart.loop,
                 placeholder: (context) => const Text('Cargando...'),

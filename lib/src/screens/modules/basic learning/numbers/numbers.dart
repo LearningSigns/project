@@ -9,7 +9,6 @@ class NumbersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> listadoNumeros = [
       'Números',
-      '0',
       '1',
       '2',
       '3',
@@ -18,7 +17,29 @@ class NumbersScreen extends StatelessWidget {
       '6',
       '7',
       '8',
-      '9'
+      '9',
+      '10',
+      '20',
+      '30',
+      '40',
+      '50',
+      '60',
+      '70',
+      '80',
+      '90',
+      '100',
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '800',
+      '900',
+      '1000',
+      '2000',
+      'Ejemplo de centenas',
+      'Ejemplo de decenas'
     ];
 
     return Scaffold(
@@ -38,19 +59,24 @@ class NumbersScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Acción cuando se presiona el botón
-                        print('Presionado: ${listadoNumeros[index]}');
                         Navigator.pushNamed(
                           context,
                           'item',
-                          arguments: listadoNumeros[index],
+                          arguments: {
+                            'item': listadoNumeros[index],
+                            'returnItem': 'number'
+                          },
                         );
                       },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              ColorsApp.secondary)),
                       child: Text(
                         listadoNumeros[index],
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: ColorsApp.secondary),
+                            color: ColorsApp.white),
                       ),
                     ),
                   );

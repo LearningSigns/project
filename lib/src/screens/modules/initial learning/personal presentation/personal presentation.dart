@@ -33,7 +33,10 @@ class PersonalPresentationScreen extends StatelessWidget {
                         Navigator.pushNamed(
                           context,
                           'item',
-                          arguments: listadoPresentacionPersonal[index],
+                          arguments: {
+                            'item': listadoPresentacionPersonal[index],
+                            'returnItem': 'presentation_i'
+                          },
                         );
                       },
                       style: ButtonStyle(

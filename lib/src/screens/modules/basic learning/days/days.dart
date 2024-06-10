@@ -8,7 +8,7 @@ class DaysScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> listadoDias = [
-      'Días',
+      'Días de la semana',
       'Lunes',
       'Martes',
       'Miercoles',
@@ -35,19 +35,24 @@ class DaysScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Acción cuando se presiona el botón
-                        print('Presionado: ${listadoDias[index]}');
                         Navigator.pushNamed(
                           context,
                           'item',
-                          arguments: listadoDias[index],
+                          arguments: {
+                            'item': listadoDias[index],
+                            'returnItem': 'day'
+                          },
                         );
                       },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              ColorsApp.secondary)),
                       child: Text(
                         listadoDias[index],
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: ColorsApp.secondary),
+                            color: ColorsApp.white),
                       ),
                     ),
                   );

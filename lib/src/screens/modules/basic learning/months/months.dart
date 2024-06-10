@@ -8,7 +8,7 @@ class MonthsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> listadoMeses = [
-      'Meses',
+      'Presentacion meses del año',
       'Enero',
       'Febrero',
       'Marzo',
@@ -40,19 +40,24 @@ class MonthsScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Acción cuando se presiona el botón
-                        print('Presionado: ${listadoMeses[index]}');
                         Navigator.pushNamed(
                           context,
                           'item',
-                          arguments: listadoMeses[index],
+                          arguments: {
+                            'item': listadoMeses[index],
+                            'returnItem': 'month'
+                          },
                         );
                       },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              ColorsApp.secondary)),
                       child: Text(
                         listadoMeses[index],
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: ColorsApp.secondary),
+                            color: ColorsApp.white),
                       ),
                     ),
                   );
