@@ -1,10 +1,73 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:learning_sings/src/componets/componets.dart';
 import 'package:learning_sings/src/theme/app_theme.dart';
+import 'package:toasty_box/toast_enums.dart';
+import 'package:toasty_box/toasty_box.dart';
 
-import '../../componets/componets.dart';
-
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final TextEditingController userController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController repeatPasswordController =
+      TextEditingController();
+
+  void _register() async {
+    if (passwordController.text != repeatPasswordController.text) {
+      ToastService.showErrorToast(
+        context,
+        length: ToastLength.medium,
+        expandedHeight: 100,
+        message: "Las contraseñas no son iguales.",
+      );
+      return;
+    }
+
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: userController.text,
+        password: passwordController.text,
+      );
+
+      // Añadir el usuario a Firestore
+      await _firestore.collection('users').doc(userCredential.user?.uid).set({
+        'age': '',
+        'born_day': '',
+        'email': userController.text,
+        'full_name': '',
+        'phonenumber': '',
+        'photo': '',
+      });
+
+      // ignore: use_build_context_synchronously
+      ToastService.showSuccessToast(
+        context,
+        length: ToastLength.medium,
+        expandedHeight: 100,
+        message: "Creación exitosa!",
+      );
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamed(context, 'login');
+    } catch (e) {
+      print('Failed to register: $e');
+      ToastService.showErrorToast(
+        context,
+        length: ToastLength.medium,
+        expandedHeight: 100,
+        message: "Error al registrar: $e",
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,181 +75,115 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          
-          Align(
-              alignment: Alignment.center,
-              child: SingleChildScrollView(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(
-                      horizontal: 15.0, vertical: 45.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                                20), // Borde redondeado de 20
-                            image: const DecorationImage(
-                              image: AssetImage('assets/image/logo_without_background.png'),
-                              fit: BoxFit
-                                  .cover, // Ajusta la imagen para cubrir el contenedor
+          const BackgroundImage(),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Card(
+                color: ColorsApp.white,
+                shadowColor: ColorsApp.textColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: SizedBox(
+                    height: 600,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Container(
+                                width: 120,
+                                height: 120,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                        'assets/image/logo_without_background.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            const SizedBox(height: 20.0),
+                            const Text(
+                              'Regístrate ahora y sé parte de nuestra comunidad',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 50.0),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CustomTextFormField(
+                                  icon: Icons.person,
+                                  iconColor: ColorsApp.textColor,
+                                  hintText: 'Ingresa tu usuario',
+                                  labelText: 'Usuario',
+                                  controller: userController,
+                                  onChanged: (value) {},
+                                ),
+                                const SizedBox(height: 20.0),
+                                CustomTextFormField(
+                                  icon: Icons.lock,
+                                  iconColor: ColorsApp.textColor,
+                                  hintText: 'Ingresa tu contraseña',
+                                  labelText: 'Contraseña',
+                                  controller: passwordController,
+                                  onChanged: (value) {},
+                                ),
+                                const SizedBox(height: 20.0),
+                                CustomTextFormField(
+                                  icon: Icons.lock,
+                                  iconColor: ColorsApp.textColor,
+                                  hintText: 'Ingresa tu contraseña nuevamente',
+                                  labelText: 'Confirma tu contraseña',
+                                  controller: repeatPasswordController,
+                                  onChanged: (value) {},
+                                ),
+                                const SizedBox(height: 20.0),
+                                ButtonPrimary(
+                                  screenSize: screenSize,
+                                  title: 'Crear cuenta',
+                                  colorFondo: ColorsApp.secondary,
+                                  colorLetra: ColorsApp.white,
+                                  onTap: _register,
+                                  colorBorde: ColorsApp.secondary,
+                                ),
+                                const SizedBox(height: 20.0),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text('¿Tienes cuenta?',
+                                        style: TextStyle(fontSize: 16)),
+                                    const SizedBox(width: 10.0),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(context, 'login');
+                                      },
+                                      child: const Text(
+                                        'Iniciar sesión',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      const Text(
-                        'Regístrate ahora y sé parte de nuestra comunidad',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        height: 50.0,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // SizedBox(
-                          //   height: 60.0,
-                          //   child: TextFormField(
-                          //     autocorrect: false,
-                          //     onChanged: (value) => {},
-                          //     decoration: const InputDecoration(
-                          //       filled: true,
-                          //       fillColor: ColorsApp.white,
-                          //       hintText: 'Ingresa tu correo electronico',
-                          //       labelText: 'Email',
-                          //       floatingLabelBehavior:
-                          //           FloatingLabelBehavior.auto,
-                          //       floatingLabelAlignment:
-                          //           FloatingLabelAlignment.start,
-                          //     ),
-                          //     style: const TextStyle(
-                          //       color: ColorsApp.textColor,
-                          //     ),
-                          //   ),
-                          // ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          SizedBox(
-                            height: 60.0,
-                            child: TextFormField(
-                              autocorrect: false,
-                              onChanged: (value) => {},
-                              decoration: const InputDecoration(
-                                filled: true,
-                                fillColor: ColorsApp.white,
-                                hintText: 'Ingresa tu usuario',
-                                labelText: 'Usuario',
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.auto,
-                                floatingLabelAlignment:
-                                    FloatingLabelAlignment.start,
-                              ),
-                              style: const TextStyle(
-                                color: ColorsApp.textColor,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          SizedBox(
-                            height: 60.0,
-                            child: TextFormField(
-                              autocorrect: false,
-                              onChanged: (value) => {},
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                filled: true,
-                                fillColor: ColorsApp.white,
-                                hintText: 'Ingresa tu contraseña',
-                                labelText: 'Contraseña',
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.auto,
-                                floatingLabelAlignment:
-                                    FloatingLabelAlignment.start,
-                              ),
-                              style: const TextStyle(
-                                color: ColorsApp.textColor,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          SizedBox(
-                            height: 60.0,
-                            child: TextFormField(
-                              autocorrect: false,
-                              onChanged: (value) => {},
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                filled: true,
-                                fillColor: ColorsApp.white,
-                                hintText: 'Ingresa tu contraseña nuevamente',
-                                labelText: 'Confirma tu contraseña',
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.auto,
-                                floatingLabelAlignment:
-                                    FloatingLabelAlignment.start,
-                              ),
-                              style: const TextStyle(
-                                color: ColorsApp.textColor,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          ButtonPrimary(
-                            screenSize: screenSize,
-                            title: 'Crear cuenta',
-                            colorFondo: ColorsApp.secondary,
-                            colorLetra: ColorsApp.white,
-                            onTap: () async {
-                              Navigator.pushNamed(context, 'second');
-                            },
-                            colorBorde: ColorsApp.secondary,
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text('¿Tienes cuenta?',
-                                  style: TextStyle(fontSize: 16)),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(context, 'login');
-                                  },
-                                  child: const Text(
-                                    'Iniciar sesión',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
-                                  ))
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ))
+              ),
+            ),
+          ),
         ],
       ),
     );

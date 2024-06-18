@@ -23,7 +23,7 @@ class PresentationPersonalIIScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listado.length,
                 itemBuilder: (context, index) {

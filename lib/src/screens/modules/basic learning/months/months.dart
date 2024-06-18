@@ -31,7 +31,7 @@ class MonthsScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoMeses.length,
                 itemBuilder: (context, index) {

@@ -31,7 +31,7 @@ class FamilyScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoFamilia.length,
                 itemBuilder: (context, index) {

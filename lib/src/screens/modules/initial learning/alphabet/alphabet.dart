@@ -47,7 +47,7 @@ class AlphabetScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoAlfabeto.length,
                 itemBuilder: (context, index) {

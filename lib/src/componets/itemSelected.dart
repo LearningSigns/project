@@ -19,6 +19,9 @@ class _ItemSelectedState extends State<ItemSelected>
   @override
   void initState() {
     itemName = widget.item == '¿Cómo estas?' ? 'Cómo estas' : widget.item;
+    itemName = widget.item == '¿Qué vas a aprender?'
+        ? 'Qué vas a aprender'
+        : widget.item;
     _controller = GifController(vsync: this);
     super.initState();
   }
@@ -54,7 +57,7 @@ class _ItemSelectedState extends State<ItemSelected>
           ),
           TextButton.icon(
               onPressed: () {
-                  Navigator.pushNamed(context, widget.returnItem);
+                Navigator.pushNamed(context, widget.returnItem);
               },
               icon: const Icon(Icons.arrow_back),
               label: const Text("Volver"),

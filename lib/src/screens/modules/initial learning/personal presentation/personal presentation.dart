@@ -22,7 +22,7 @@ class PersonalPresentationScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoPresentacionPersonal.length,
                 itemBuilder: (context, index) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:learning_sings/src/componets/componets.dart';
+import 'package:learning_sings/src/theme/app_theme.dart';
 
 class WhatLearnScreen extends StatefulWidget {
   const WhatLearnScreen({super.key});
@@ -27,10 +28,6 @@ class _WhatLearnScreenState extends State<WhatLearnScreen>
 
   @override
   Widget build(BuildContext context) {
-    List<String> listadoNumeros = [
-      '¿Quiénes somos?',
-    ];
-
     return Scaffold(
       appBar: const AppBarHome(
         titleApp: '¿Qué vas a aprender?',
@@ -39,25 +36,63 @@ class _WhatLearnScreenState extends State<WhatLearnScreen>
       body: Stack(
         children: [
           const BackgroundImage(),
-          Center(
-            child: SizedBox(
-              // width: 300,
-              // height: 700,
-              child: Gif(
-                image: const AssetImage("assets/gif/Que vas aprender.gif"),
-                controller:
-                    _controller, // if duration and fps is null, original gif fps will be used.
-                // fps: 30,
-                // duration: const Duration(seconds: 3),
-                autostart: Autostart.loop,
-                placeholder: (context) => const Text('Loading...'),
-                onFetchCompleted: () {
-                  _controller.reset();
-                  _controller.forward();
-                },
+          Column(
+            children: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        'item',
+                        arguments: {
+                          'item': '¿Qué vas a aprender?',
+                          'returnItem': 'whatlearn'
+                        },
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(ColorsApp.secondary),
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(480, 40)),
+                    ),
+                    child: const Text(
+                      '¿Qué vas a aprender?',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'whatlearndescription');
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(ColorsApp.secondary),
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(480, 40)),
+                    ),
+                    child: const Text(
+                      'Descripción',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

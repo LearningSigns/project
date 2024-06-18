@@ -11,6 +11,8 @@ class AppRoutes {
     'welcome': (BuildContext context) => const WelcomeScreen(),
     'whoweare': (BuildContext context) => const WhoWeAreScreen(),
     'whatlearn': (BuildContext context) => const WhatLearnScreen(),
+    'whatlearndescription': (BuildContext context) =>
+        const WhatLearnDescriptionScreen(),
     'introduction_1': (BuildContext context) =>
         const IntroductionModuleOneScreen(),
     'presentation_i': (BuildContext context) =>
@@ -27,6 +29,9 @@ class AppRoutes {
     'year': (BuildContext context) => const YearsScreen(),
     'presentation_ii': (BuildContext context) =>
         const PresentationPersonalIIScreen(),
+    'congratulations': (BuildContext context) => const CongratulationsScreen(),
+    'evaluate_your_knowledge': (BuildContext context) => const EvaluateYourKnowledgeScreen(),
+    'profile': (BuildContext context) => const ProfileScreen(),
     'item': (context) => ItemSelected(
           item: (ModalRoute.of(context)!.settings.arguments
               as Map<String, String>)['item']!,

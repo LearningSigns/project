@@ -50,7 +50,7 @@ class NumbersScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoNumeros.length,
                 itemBuilder: (context, index) {

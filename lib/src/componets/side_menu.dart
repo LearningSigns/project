@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_sings/src/theme/app_theme.dart';
+import 'package:toasty_box/toast_enums.dart';
+import 'package:toasty_box/toasty_box.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -9,6 +12,30 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
+  void _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      // Navegar a la pantalla de inicio de sesión después de cerrar sesión
+      Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
+      // Mostrar mensaje de éxito
+      ToastService.showSuccessToast(
+        context,
+        length: ToastLength.medium,
+        expandedHeight: 100,
+        message: "Sesión cerrada exitosamente.",
+      );
+    } catch (e) {
+      print("Error al cerrar sesión: $e");
+      // Mostrar mensaje de error
+      ToastService.showErrorToast(
+        context,
+        length: ToastLength.medium,
+        expandedHeight: 100,
+        message: "Error al cerrar sesión.",
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -28,17 +55,17 @@ class _SideMenuState extends State<SideMenu> {
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Quiénes somos?'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whoweare');
-                        }),
+                      title: const Text('¿Quiénes somos?'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'whoweare');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('¿Qué vas a aprender?'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whatlearn');
-                        }),
+                      title: const Text('¿Qué vas a aprender?'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'whatlearn');
+                      },
+                    ),
                   ],
                 ),
                 ExpansionTile(
@@ -49,35 +76,35 @@ class _SideMenuState extends State<SideMenu> {
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Introducción'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'introduction_1');
-                        }),
+                      title: const Text('Introducción'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'introduction_1');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Abecedario'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'alphabet');
-                        }),
+                      title: const Text('Abecedario'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'alphabet');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Presentación personal 1'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'presentation_i');
-                        }),
+                      title: const Text('Presentación personal 1'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'presentation_i');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Saludos'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'greetings');
-                        }),
+                      title: const Text('Saludos'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'greetings');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Familia'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'family');
-                        }),
+                      title: const Text('Familia'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'family');
+                      },
+                    ),
                   ],
                 ),
                 ExpansionTile(
@@ -88,41 +115,41 @@ class _SideMenuState extends State<SideMenu> {
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Introducción'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'introduction_2');
-                        }),
+                      title: const Text('Introducción'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'introduction_2');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Días'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'day');
-                        }),
+                      title: const Text('Días'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'day');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Meses'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'month');
-                        }),
+                      title: const Text('Meses'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'month');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Números'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'number');
-                        }),
+                      title: const Text('Números'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'number');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Años'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'year');
-                        }),
+                      title: const Text('Años'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'year');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Presentación'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'presentation_ii');
-                        }),
+                      title: const Text('Presentación'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'presentation_ii');
+                      },
+                    ),
                   ],
                 ),
                 ExpansionTile(
@@ -133,17 +160,17 @@ class _SideMenuState extends State<SideMenu> {
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Felicitaciones'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whoweare');
-                        }),
+                      title: const Text('Felicitaciones'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'congratulations');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Evalua tus conocimientos'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whatlearn');
-                        }),
+                      title: const Text('Evalua tus conocimientos'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'evaluate_your_knowledge');
+                      },
+                    ),
                   ],
                 ),
                 ExpansionTile(
@@ -154,17 +181,17 @@ class _SideMenuState extends State<SideMenu> {
                   collapsedBackgroundColor: Colors.transparent,
                   children: [
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Perfil'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whoweare');
-                        }),
+                      title: const Text('Perfil'),
+                      onTap: () {
+                        Navigator.pushNamed(context, 'profile');
+                      },
+                    ),
                     ListTile(
-                        // leading: const Icon(Icons.document_scanner),
-                        title: const Text('Cerrar sesión'),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'whatlearn');
-                        }),
+                      title: const Text('Cerrar sesión'),
+                      onTap: () {
+                        _signOut(); // Asegúrate de llamar a la función
+                      },
+                    ),
                   ],
                 ),
               ],
@@ -173,9 +200,10 @@ class _SideMenuState extends State<SideMenu> {
           Column(
             children: [
               ListTile(
-                  leading: const Icon(Icons.outbond_rounded),
-                  title: const Text('Contáctanos '),
-                  onTap: () {}),
+                leading: const Icon(Icons.outbond_rounded),
+                title: const Text('Contáctanos '),
+                onTap: () {},
+              ),
             ],
           ),
         ],
@@ -192,10 +220,6 @@ class CustomDrawerHeader extends StatelessWidget {
     return DrawerHeader(
       decoration: const BoxDecoration(
         color: ColorsApp.secondary,
-        // image: DecorationImage(
-        //   image: AssetImage('assets/image/background_screem.jpeg'),
-        //   fit: BoxFit.cover,
-        // ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -204,7 +228,7 @@ class CustomDrawerHeader extends StatelessWidget {
             width: 70,
             height: 70,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), // Borde redondeado de 20
+              borderRadius: BorderRadius.circular(20),
               image: const DecorationImage(
                 image: AssetImage('assets/image/logo_without_background.png'),
                 fit: BoxFit.cover,

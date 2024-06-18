@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578610730081",
+    "project_id": "learning-signs-2fd82",
+    "storage_bucket": "learning-signs-2fd82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578610730081:android:fb5d71448537dabf3dc620",
+        "android_client_info": {
+          "package_name": "com.example.learning_sings"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwSVPzWRt43j3i-3lVALibTi9JTE29pnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -33,7 +33,7 @@ class GreetingsScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackgroundImage(),
-            Expanded(
+            Positioned.fill(
               child: ListView.builder(
                 itemCount: listadoSaludos.length,
                 itemBuilder: (context, index) {
@@ -41,12 +41,11 @@ class GreetingsScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        
                         Navigator.pushNamed(
                           context,
                           'item',
                           arguments: {
-                            'item':  listadoSaludos[index],
+                            'item': listadoSaludos[index],
                             'returnItem': 'greetings'
                           },
                         );
@@ -59,7 +58,7 @@ class GreetingsScreen extends StatelessWidget {
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: ColorsApp.secondary),
+                            color: ColorsApp.white),
                       ),
                     ),
                   );
