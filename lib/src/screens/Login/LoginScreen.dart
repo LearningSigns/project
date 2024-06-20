@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: ColorsApp.white,
                 shadowColor: ColorsApp.textColor,
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: const EdgeInsets.all(18.0),
                   child: SizedBox(
                     height: 500,
                     child: Align(

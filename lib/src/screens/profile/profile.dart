@@ -228,29 +228,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
       drawer: const SideMenu(),
       body: Stack(
         children: [
-          const BackgroundImage(),
-          TextButton.icon(
-              onPressed: () {
-                print('onPressed');
-                Navigator.pushNamed(context, 'profile');
-              },
-              icon: const Icon(Icons.arrow_back),
-              label: const Text("Volver"),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(ColorsApp.secondary),
-              )),
+          const BackgroundImage(),          
           Align(
             alignment: Alignment.center,
             child: SingleChildScrollView(
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 margin: const EdgeInsets.symmetric(
-                    horizontal: 15.0, vertical: 45.0),
+                    horizontal: 16.0, vertical: 8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 10.0),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: TextButton.icon(
+                          onPressed: () {
+                            print('onPressed');
+                            Navigator.pushNamed(context, 'profile');
+                          },
+                          icon: const Icon(Icons.arrow_back),
+                          label: const Text("Volver"),
+                          style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all<Color>(
+                                ColorsApp.secondary),
+                          )),
+                    ),                
                     GestureDetector(
                       onTap: _pickImage,
                       child: CircleAvatar(
@@ -299,7 +301,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         const SizedBox(height: 10.0),
                         CustomTextFormField(
-                          icon: Icons.person,
+                          icon: Icons.mail,
                           iconColor: ColorsApp.textColor,
                           hintText: 'Ingresa tu correo electrónico',
                           labelText: 'Correo electrónico',
@@ -309,7 +311,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         const SizedBox(height: 10.0),
                         CustomTextFormField(
-                          icon: Icons.person,
+                          icon: Icons.flag,
                           iconColor: ColorsApp.textColor,
                           hintText: 'Ingresa tu edad',
                           labelText: 'Edad',
@@ -319,7 +321,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         const SizedBox(height: 10.0),
                         CustomTextFormField(
-                          icon: Icons.person,
+                          icon: Icons.calendar_month_outlined,
                           iconColor: ColorsApp.textColor,
                           hintText: 'Ingresa tu fecha de nacimiento',
                           labelText: 'Fecha de nacimiento',
