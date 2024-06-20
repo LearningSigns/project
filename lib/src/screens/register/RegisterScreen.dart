@@ -125,6 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   labelText: 'Usuario',
                                   controller: userController,
                                   onChanged: (value) {},
+                                  disabledField: true,
                                 ),
                                 const SizedBox(height: 20.0),
                                 CustomTextFormField(
@@ -134,6 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   labelText: 'Contraseña',
                                   controller: passwordController,
                                   onChanged: (value) {},
+                                  disabledField: true,
                                 ),
                                 const SizedBox(height: 20.0),
                                 CustomTextFormField(
@@ -143,6 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   labelText: 'Confirma tu contraseña',
                                   controller: repeatPasswordController,
                                   onChanged: (value) {},
+                                  disabledField: true,
                                 ),
                                 const SizedBox(height: 20.0),
                                 ButtonPrimary(

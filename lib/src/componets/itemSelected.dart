@@ -3,6 +3,15 @@ import 'package:gif/gif.dart';
 import 'package:learning_sings/src/componets/componets.dart';
 import 'package:learning_sings/src/theme/app_theme.dart';
 
+String getItemName(String item) {
+  const Map<String, String> itemMap = {
+    '¿Cómo estas?': 'Cómo estas',
+    '¿Qué vas a aprender?': 'Qué vas a aprender',
+  };
+
+  return itemMap[item] ?? item;
+}
+
 class ItemSelected extends StatefulWidget {
   const ItemSelected({super.key, required this.item, required this.returnItem});
   final String item;
@@ -18,10 +27,7 @@ class _ItemSelectedState extends State<ItemSelected>
   String itemName = '';
   @override
   void initState() {
-    itemName = widget.item == '¿Cómo estas?' ? 'Cómo estas' : widget.item;
-    itemName = widget.item == '¿Qué vas a aprender?'
-        ? 'Qué vas a aprender'
-        : widget.item;
+    itemName = getItemName(widget.item);
     _controller = GifController(vsync: this);
     super.initState();
   }

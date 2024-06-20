@@ -201,8 +201,10 @@ class _SideMenuState extends State<SideMenu> {
             children: [
               ListTile(
                 leading: const Icon(Icons.outbond_rounded),
-                title: const Text('Contáctanos '),
-                onTap: () {},
+                title: const Text('Contáctanos'),
+                onTap: () {
+                  Navigator.pushNamed(context, 'contact_us');
+                },
               ),
             ],
           ),

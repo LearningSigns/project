@@ -37,7 +37,7 @@ class _IntroductionModuleTwoScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarHome(
-        titleApp: 'Introducción 1',
+        titleApp: 'Introducción II',
       ),
       drawer: const SideMenu(),
       body: Stack(

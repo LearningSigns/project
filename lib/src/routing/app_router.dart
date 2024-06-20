@@ -31,7 +31,9 @@ class AppRoutes {
         const PresentationPersonalIIScreen(),
     'congratulations': (BuildContext context) => const CongratulationsScreen(),
     'evaluate_your_knowledge': (BuildContext context) => const EvaluateYourKnowledgeScreen(),
-    'profile': (BuildContext context) => const ProfileScreen(),
+    'update_profile': (BuildContext context) => const ProfileScreen(),
+    'profile': (BuildContext context) => const ViewProfileScreen(),
+    'contact_us': (BuildContext context) => const ContactUsScreen(),
     'item': (context) => ItemSelected(
           item: (ModalRoute.of(context)!.settings.arguments
               as Map<String, String>)['item']!,

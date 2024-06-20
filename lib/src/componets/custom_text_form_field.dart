@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -7,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
+  final bool disabledField;
 
   CustomTextFormField({
     required this.icon,
@@ -15,6 +18,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.labelText,
     required this.controller,
     required this.onChanged,
+    required this.disabledField
   });
 
   @override
@@ -24,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         autocorrect: false,
+        enabled: disabledField,
         onChanged: onChanged,
         decoration: InputDecoration(
           filled: false,

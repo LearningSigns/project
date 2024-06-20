@@ -1,3 +1,5 @@
+export 'package:learning_sings/src/screens/contact_us/contact_us.dart';
+
 export 'package:learning_sings/src/componets/itemSelected.dart';
 export 'package:learning_sings/src/screens/first_page/FistPageScreen.dart';
 export 'package:learning_sings/src/screens/home/HomeScreen.dart';
@@ -20,4 +22,7 @@ export 'package:learning_sings/src/screens/modules/presentation/what%20learn/wha
 export 'package:learning_sings/src/screens/modules/presentation/who_we_are/who_we_are.dart';
 export 'package:learning_sings/src/screens/profile/profile.dart';
 export 'package:learning_sings/src/screens/register/RegisterScreen.dart';
+export 'package:learning_sings/src/screens/view%20profile/view%20profile.dart';
 export 'package:learning_sings/src/screens/welcome/WelcomeScreen.dart';
+
+

@@ -36,13 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
     } on FirebaseAuthException catch (e) {
       print(e.code);
       print('entro');
-      ToastService.showErrorToast(
-        context,
-        length: ToastLength.medium,
-        expandedHeight: 100,
-        message: "Usuario o contraseña incorrectos",
-        dismissDirection: DismissDirection.up
-      );
+      ToastService.showErrorToast(context,
+          length: ToastLength.medium,
+          expandedHeight: 100,
+          message: "Usuario o contraseña incorrectos",
+          dismissDirection: DismissDirection.up);
     }
   }
 
@@ -82,8 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       width: 120,
                                       height: 120,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(40),
+                                        borderRadius: BorderRadius.circular(40),
                                         image: const DecorationImage(
                                           image: AssetImage(
                                               'assets/image/logo_without_background.png'),
@@ -100,6 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     labelText: 'Usuario',
                                     controller: userController,
                                     onChanged: (value) {},
+                                    disabledField: true,
                                   ),
                                   const SizedBox(height: 20.0),
                                   CustomTextFormField(
@@ -109,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     labelText: 'Contraseña',
                                     controller: passwordController,
                                     onChanged: (value) {},
+                                    disabledField: true,
                                   ),
                                   const SizedBox(height: 20.0),
                                   ButtonPrimary(
@@ -121,8 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   const SizedBox(height: 20.0),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       const Text(
                                         '¿No tienes cuenta?',
