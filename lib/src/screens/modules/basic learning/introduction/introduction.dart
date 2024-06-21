@@ -18,11 +18,11 @@ class _IntroductionModuleTwoScreenState
   @override
   void initState() {
     super.initState();
-    _controller =
-        VideoPlayerController.asset('assets/video/DescriptionModule2.mp4')
-          ..initialize().then((_) {
-            setState(() {});
-          });
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/DescriptionModule2.mp4?alt=media&token=77136bf6-849f-446e-82fa-58f968a821c8'))
+      ..initialize().then((_) {
+        setState(() {});
+      }).catchError((error, stackTrace) {});
 
     _controller.setLooping(true);
   }

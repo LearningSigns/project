@@ -10,6 +10,8 @@ class AppRoutes {
     'register': (BuildContext context) => const RegisterScreen(),
     'welcome': (BuildContext context) => const WelcomeScreen(),
     'whoweare': (BuildContext context) => const WhoWeAreScreen(),
+    'whowearedescription': (BuildContext context) =>
+        const WhoWeAreLearnDescriptionScreen(),
     'whatlearn': (BuildContext context) => const WhatLearnScreen(),
     'whatlearndescription': (BuildContext context) =>
         const WhatLearnDescriptionScreen(),
@@ -30,7 +32,8 @@ class AppRoutes {
     'presentation_ii': (BuildContext context) =>
         const PresentationPersonalIIScreen(),
     'congratulations': (BuildContext context) => const CongratulationsScreen(),
-    'evaluate_your_knowledge': (BuildContext context) => const EvaluateYourKnowledgeScreen(),
+    'evaluate_your_knowledge': (BuildContext context) =>
+        const EvaluateYourKnowledgeScreen(),
     'update_profile': (BuildContext context) => const ProfileScreen(),
     'profile': (BuildContext context) => const ViewProfileScreen(),
     'contact_us': (BuildContext context) => const ContactUsScreen(),

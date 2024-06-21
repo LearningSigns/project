@@ -18,10 +18,11 @@ class _EvaluateYourKnowledgeScreenState
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/EvaluateYourKnowledge.mp4')
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/EvaluateYourKnowledge.mp4?alt=media&token=251328ab-b992-4fb7-94b8-cde3ef1c4c17'))
       ..initialize().then((_) {
         setState(() {});
-      });
+      }).catchError((error, stackTrace) {});
 
     _controller.setLooping(true);
   }

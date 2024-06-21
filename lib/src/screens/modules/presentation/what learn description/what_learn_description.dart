@@ -18,10 +18,11 @@ class _WhatLearnDescriptionScreenState
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/Description.mp4')
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/Description2.mp4?alt=media&token=12c71939-7f28-4f55-9a02-17ee051c0ec2'))
       ..initialize().then((_) {
         setState(() {});
-      });
+      }).catchError((error, stackTrace) {});
 
     _controller.setLooping(true);
   }

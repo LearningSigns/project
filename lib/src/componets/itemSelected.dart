@@ -7,6 +7,7 @@ String getItemName(String item) {
   const Map<String, String> itemMap = {
     '¿Cómo estas?': 'Cómo estas',
     '¿Qué vas a aprender?': 'Qué vas a aprender',
+    '¿Quiénes somos?': 'Quiénes somos',
   };
 
   return itemMap[item] ?? item;

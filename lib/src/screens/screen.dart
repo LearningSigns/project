@@ -1,6 +1,5 @@
-export 'package:learning_sings/src/screens/contact_us/contact_us.dart';
-
 export 'package:learning_sings/src/componets/itemSelected.dart';
+export 'package:learning_sings/src/screens/contact_us/contact_us.dart';
 export 'package:learning_sings/src/screens/first_page/FistPageScreen.dart';
 export 'package:learning_sings/src/screens/home/HomeScreen.dart';
 export 'package:learning_sings/src/screens/login/LoginScreen.dart';
@@ -19,10 +18,9 @@ export 'package:learning_sings/src/screens/modules/initial%20learning/introducti
 export 'package:learning_sings/src/screens/modules/initial%20learning/personal%20presentation/personal%20presentation.dart';
 export 'package:learning_sings/src/screens/modules/presentation/what%20learn%20description/what_learn_description.dart';
 export 'package:learning_sings/src/screens/modules/presentation/what%20learn/what%20learn.dart';
+export 'package:learning_sings/src/screens/modules/presentation/who_we_are%20description/who_we_are_description.dart';
 export 'package:learning_sings/src/screens/modules/presentation/who_we_are/who_we_are.dart';
 export 'package:learning_sings/src/screens/profile/profile.dart';
 export 'package:learning_sings/src/screens/register/RegisterScreen.dart';
 export 'package:learning_sings/src/screens/view%20profile/view%20profile.dart';
 export 'package:learning_sings/src/screens/welcome/WelcomeScreen.dart';
-
-

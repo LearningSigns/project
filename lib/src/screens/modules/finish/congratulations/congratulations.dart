@@ -18,10 +18,11 @@ class _CongratulationsScreenState
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/Congratulations.mp4')
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/Congratulations.mp4?alt=media&token=3cf4d100-342a-4ebd-9312-d6c8c9e76360'))
       ..initialize().then((_) {
         setState(() {});
-      });
+      }).catchError((error, stackTrace) {});
 
     _controller.setLooping(true);
   }
