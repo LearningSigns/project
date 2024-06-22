@@ -59,34 +59,48 @@ class _ItemSelectedState extends State<ItemSelected>
       body: Stack(
         children: [
           const BackgroundImage(),
-          const SizedBox(
-            height: 20.0,
-          ),
-          TextButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, widget.returnItem);
-              },
-              icon: const Icon(Icons.arrow_back),
-              label: const Text("Volver"),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(ColorsApp.secondary),
-              )),
-          Center(
-            child: SizedBox(
-              width: 340,
-              height: 720,
-              child: Gif(
-                image: AssetImage('assets/gif/$itemName.gif'),
-                controller: _controller,
-                autostart: Autostart.loop,
-                placeholder: (context) => const Text('Cargando...'),
-                onFetchCompleted: () {
-                  _controller.reset();
-                  _controller.forward();
-                },
-              ),
-            ),
+          Align(
+            alignment: Alignment.center,
+            child: SingleChildScrollView(
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: TextButton.icon(
+                                onPressed: () {
+                                  print('onPressed');
+                                  Navigator.pushNamed(
+                                      context, widget.returnItem);
+                                },
+                                icon: const Icon(Icons.arrow_back),
+                                label: const Text("Volver"),
+                                style: ButtonStyle(
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          ColorsApp.secondary),
+                                )),
+                          ),
+                          SizedBox(
+                            width: 340,
+                            height: 700,
+                            child: Gif(
+                              image: AssetImage('assets/gif/$itemName.gif'),
+                              controller: _controller,
+                              autostart: Autostart.loop,
+                              placeholder: (context) =>
+                                  const Text('Cargando...'),
+                              onFetchCompleted: () {
+                                _controller.reset();
+                                _controller.forward();
+                              },
+                            ),
+                          ),
+                        ]))),
           ),
         ],
       ),

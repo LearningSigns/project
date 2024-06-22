@@ -14,6 +14,12 @@ class PersonalPresentationScreen extends StatelessWidget {
       "Pon a prueba tus conocimientos",
     ];
 
+    List<String> listadoLinks = [
+      "https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/personal%20presentation%2FPresentaci%C3%B3n%20personal%20I.gif?alt=media&token=f3c1609a-8a8b-47e8-b94b-2380926130ca",
+      "https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/personal%20presentation%2FMi%20nombre.gif?alt=media&token=2dbcf163-1299-418d-bba3-cf4763b998d5",
+      "https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/personal%20presentation%2FPon%20a%20prueba%20tus%20conocimientos.gif?alt=media&token=95451998-898f-427f-b62e-03d21843db8e",
+    ];
+
     return Scaffold(
         appBar: const AppBarHome(
           titleApp: 'Abecedario',
@@ -32,9 +38,10 @@ class PersonalPresentationScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          'item',
+                          'item-link',
                           arguments: {
                             'item': listadoPresentacionPersonal[index],
+                            'linkItem': listadoLinks[index],
                             'returnItem': 'presentation_i'
                           },
                         );

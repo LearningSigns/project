@@ -1,3 +1,4 @@
+export 'package:learning_sings/src/componets/itemLinkSelected.dart';
 export 'package:learning_sings/src/componets/itemSelected.dart';
 export 'package:learning_sings/src/screens/contact_us/contact_us.dart';
 export 'package:learning_sings/src/screens/first_page/FistPageScreen.dart';

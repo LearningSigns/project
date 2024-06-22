@@ -43,5 +43,13 @@ class AppRoutes {
           returnItem: (ModalRoute.of(context)!.settings.arguments
               as Map<String, String>)['returnItem']!,
         ),
+    'item-link': (context) => ItemLinkSelected(
+          item: (ModalRoute.of(context)!.settings.arguments
+              as Map<String, String>)['item']!,
+          linkItem: (ModalRoute.of(context)!.settings.arguments
+              as Map<String, String>)['linkItem']!,
+          returnItem: (ModalRoute.of(context)!.settings.arguments
+              as Map<String, String>)['returnItem']!,
+        ),
   };
 }

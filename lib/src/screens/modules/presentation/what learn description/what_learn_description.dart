@@ -22,7 +22,9 @@ class _WhatLearnDescriptionScreenState
         'https://firebasestorage.googleapis.com/v0/b/learning-signs-2fd82.appspot.com/o/Description2.mp4?alt=media&token=12c71939-7f28-4f55-9a02-17ee051c0ec2'))
       ..initialize().then((_) {
         setState(() {});
-      }).catchError((error, stackTrace) {});
+      }).catchError((error, stackTrace) {
+        print(stackTrace);
+      });
 
     _controller.setLooping(true);
   }
@@ -37,7 +39,7 @@ class _WhatLearnDescriptionScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarHome(
-        titleApp: 'Introducción 1',
+        titleApp: '¿Qué vas a aprender? - Descripción',
       ),
       drawer: const SideMenu(),
       body: Stack(
